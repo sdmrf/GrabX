@@ -6,8 +6,10 @@ import {
 import Home from "./Pages/Home/Home";
 import Products from "./Pages/Products/Products";
 import Product from "./Pages/Product/Product";
-import Header from "./Components/Header/Header";
+import Header from "./Components/Navbar/Navbar";
 import Footer from "./Components/Footer/Footer";
+
+import './App.scss';
 
 const Layout = () => {
   return (

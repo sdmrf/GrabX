@@ -1,0 +1,43 @@
+.Navbar{
+    height: 80px;
+    .Wrapper{
+        display: flex;
+        padding: 10px 30px;
+        justify-content: space-between;
+        align-items: center;
+
+        .Item{
+            display: flex;
+            align-items: center;
+            font-size: 18px;
+        }
+
+        .Left{
+            display: flex;
+            gap: 25px;
+            img{
+                width: 25px;
+                height: 20px;
+            }
+        }
+
+        .Center{
+            font-size: 30px;
+            letter-spacing: 2px;
+
+        }
+
+        .Right{
+            gap: 25px;
+            display: flex;
+
+            .Icons{
+                display: flex;
+                gap: 25px;
+                color: #777;
+                cursor: pointer;
+            }
+            
+        }
+    }
+}
