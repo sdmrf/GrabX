@@ -38,6 +38,7 @@
                 cursor: pointer;
 
                 .CartIcon{
+                    transition: all 0.2s ease-in-out;
                     position: relative;
                     span{
                         height: 20px;
@@ -53,6 +54,10 @@
                         display: flex;
                         justify-content: center;
                         align-items: center;
+                    }
+
+                    &:hover{
+                        scale: 1.1;
                     }
                 }
             }
