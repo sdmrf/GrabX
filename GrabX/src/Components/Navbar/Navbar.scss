@@ -33,9 +33,28 @@
 
             .Icons{
                 display: flex;
-                gap: 25px;
+                gap: 15px;
                 color: #777;
                 cursor: pointer;
+
+                .CartIcon{
+                    position: relative;
+                    span{
+                        height: 20px;
+                        width: 20px;
+                        position: absolute;
+                        top: -8px;
+                        right: -8px;
+                        background-color: #F11A7B;
+                        color: #fff;
+                        border-radius: 50%;
+                        font-size: 12px;
+                        font-weight: 00;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                    }
+                }
             }
             
         }
