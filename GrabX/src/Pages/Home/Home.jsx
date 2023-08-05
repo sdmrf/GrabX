@@ -1,3 +1,4 @@
+import Categories from "../../Components/Categories/Categories";
 import FeaturedProducts from "../../Components/FeaturedProducts/FeaturedProducts"
 import Slider from "../../Components/Slider/Slider"
 import "./Home.scss"
@@ -13,6 +14,7 @@ const Home = () => {
     <div className="Home">
       <Slider />
       <FeaturedProducts type="Featured" info={data[0]} />
+      <Categories />
       <FeaturedProducts type="Trending" info={data[1]} />
     </div>
   )
