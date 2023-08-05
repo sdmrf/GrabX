@@ -1,104 +1,104 @@
 /* Footer */
 .Footer {
     margin: 80px 175px 15px 175px;
-  
+
     /* Footer Top */
     .Top {
-      display: flex;
-      gap: 50px;
-  
-      /* Footer Item */
-      .Item {
-        flex: 1;
         display: flex;
-        flex-direction: column;
-        gap: 10px;
-        text-align: justify;
-        font-size: 14px;
-  
-        /* Footer Item Header (h1) */
-        h1 {
-          font-size: 18px;
-          font-weight: bold;
-          color: #555;
-          margin: 10px 0px;
-        }
-  
-        /* Footer Item Description (span) */
-        span {
-          color: gray;
-        }
-  
-        /* Footer Item Icons */
-        .Icons {
-          display: flex;
-          gap: 10px;
-          margin-top: 10px;
-          justify-content: center;
-          align-items: center;
-  
-          /* Footer Item Icon */
-          .Icon {
-            height: 30px;
-            width: 30px;
-            border-radius: 50%;
-            background-color: #FCFFE7;
+        gap: 50px;
+
+        /* Footer Item */
+        .Item {
+            flex: 1;
             display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-  
-            /* Footer Item Icon Hover */
-            &:hover {
-              background-color: #dadada;
+            flex-direction: column;
+            gap: 10px;
+            text-align: justify;
+            font-size: 14px;
+
+            /* Footer Item Header (h1) */
+            h1 {
+                font-size: 18px;
+                font-weight: bold;
+                color: #555;
+                margin: 10px 0px;
             }
-  
-            /* Footer Item Icon Image */
-            img {
-              height: 20px;
-              object-fit: contain;
+
+            /* Footer Item Description (span) */
+            span {
+                color: gray;
             }
-          }
+
+            /* Footer Item Icons */
+            .Icons {
+                display: flex;
+                gap: 10px;
+                margin-top: 10px;
+                justify-content: center;
+                align-items: center;
+
+                /* Footer Item Icon */
+                .Icon {
+                    height: 30px;
+                    width: 30px;
+                    border-radius: 50%;
+                    background-color: #FCFFE7;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    cursor: pointer;
+                    transition: background-color 0.3s ease;
+
+                    /* Footer Item Icon Hover */
+                    &:hover {
+                        background-color: #dadada;
+                    }
+
+                    /* Footer Item Icon Image */
+                    img {
+
+                        height: 30px;
+                        object-fit: contain;
+                    }
+                }
+            }
         }
-      }
     }
-  
+
     /* Footer Bottom */
     .Bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin-top: 50px;
-      user-select: none;
-  
-      /* Footer Bottom Left */
-      .Left {
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        gap: 20px;
-  
-        /* Footer Bottom Left Logo */
-        .Logo {
-          color: #4E4FEB;
-          font-size: 30px;
-          font-weight: bold;
+        margin-top: 50px;
+        user-select: none;
+
+        /* Footer Bottom Left */
+        .Left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            /* Footer Bottom Left Logo */
+            .Logo {
+                color: #4E4FEB;
+                font-size: 30px;
+                font-weight: bold;
+            }
+
+            /* Footer Bottom Left Copyright */
+            .Copyright {
+                color: gray;
+                font-size: 14px;
+            }
         }
-  
-        /* Footer Bottom Left Copyright */
-        .Copyright {
-          color: gray;
-          font-size: 14px;
+
+        /* Footer Bottom Right Image */
+        .Right {
+            img {
+                height: 50px;
+                object-fit: contain;
+            }
         }
-      }
-  
-      /* Footer Bottom Right Image */
-      .Right {
-        img {
-          height: 50px;
-          object-fit: contain;
-        }
-      }
     }
-  }
-  
+}

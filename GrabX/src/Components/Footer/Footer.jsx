@@ -77,7 +77,7 @@ const Footer = () => {
       </div>
       <div className="Bottom">
         <div className="Left">
-          <span className="Logo">GrabX</span>
+          <span className="Logo">Sdmrf</span>
           <span className="Copyright">© Copyright 2023. All Rights Reserved</span>
         </div>
         <div className="Right">
