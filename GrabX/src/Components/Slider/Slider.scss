@@ -1,0 +1,53 @@
+.Slider{
+    position: relative;
+    height: calc(100vh - 80px);
+    width: 100vw;
+
+
+    .Container{
+        display: flex;
+        gap: 5px;
+        width: 100%;
+        height: 100%;
+        transition: all 1s ease;
+
+        video{
+            height: 100%;
+            width: 100vw;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+    }
+
+    .Icons{
+        display: flex;
+        position: absolute;
+        width: fit-content;
+        left: 0;
+        right: 0;
+        bottom: 100px;
+        margin: auto;
+        gap: 10px;
+        justify-content: center;
+        align-items: center;
+
+
+        .Icon{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            background-color: #FCFFE7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &:hover{
+                background-color: #dadada;
+                scale: 1.1;
+            }
+        }
+
+    }
+}
