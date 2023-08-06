@@ -26,7 +26,7 @@ const Categories = () => {
       <div className="Column">
         <div className="Row">
           <img src= {data[2]} alt="Category" />
-          <button className="Button"><Link to ="./Products/3" className="Link">New Season</Link></button>
+          <button className="Button"><Link to ="./Products/3" className="Link">Men</Link></button>
         </div>
       </div>
       <div className="Column Col">
@@ -34,7 +34,7 @@ const Categories = () => {
           <div className="Column">
             <div className="Row">
               <img src= {data[3]} alt="Category" />
-              <button className="Button"><Link to ="./Products/4" className="Link">Men</Link></button>
+              <button className="Button"><Link to ="./Products/4" className="Link">New Season</Link></button>
             </div>
           </div>
           <div className="Column">

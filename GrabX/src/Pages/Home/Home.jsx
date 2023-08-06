@@ -1,4 +1,5 @@
 import Categories from "../../Components/Categories/Categories";
+import Contact from "../../Components/Contact/Contact";
 import FeaturedProducts from "../../Components/FeaturedProducts/FeaturedProducts"
 import Slider from "../../Components/Slider/Slider"
 import "./Home.scss"
@@ -16,6 +17,7 @@ const Home = () => {
       <FeaturedProducts type="Featured" info={data[0]} />
       <Categories />
       <FeaturedProducts type="Trending" info={data[1]} />
+      <Contact />
     </div>
   )
 }
