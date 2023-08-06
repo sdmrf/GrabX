@@ -7,6 +7,7 @@ const Card = ({ item }) => {
         <Link to={`/product/${item.id}`} className="Link">
             <div className="Card">
                 <div className="Image">
+                    {item.isNew && <span className="New">New Season</span>}
                     <img src={item.img} alt="" className="MainImage" />
                     {item.img2 && <img src={item.img2} alt="" className="AltImage" />}
                 </div>

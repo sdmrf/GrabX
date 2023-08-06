@@ -41,5 +41,42 @@
             position: absolute;
         }
 
+        .New{
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: rgba($color: #f0f0f0, $alpha: 0.9);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            font-weight: 600;
+            color: #D14D72;
+            box-shadow: 0px 0px 10px rgba($color: #000000, $alpha: 0.1);
+
+            z-index: 3;
+        }
+
+    }
+    
+    h2{
+        font-size: 16px;
+        font-weight: 600;
+        flood-color: #001C30;
+    }
+
+    .Price{
+        display: flex;
+        gap: 20px;
+
+        h3{
+            font-size: 18px;
+            font-weight: 500;
+
+            &:first-child{
+                text-decoration: line-through;
+                color: #EF6262;
+            }
+        }
+
     }
 }

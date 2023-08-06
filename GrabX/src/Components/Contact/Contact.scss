@@ -1,0 +1,42 @@
+.Contact{
+    background-color: #2879FE;
+    color: #f0f0f0;
+
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+
+    .Wrapper{
+        width: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span{
+            font-weight: bold;
+        }
+
+        input{
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+
+        }
+
+        button{
+            padding: 10px;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            background-color: #333;
+            color: #f0f0f0;
+            font-weight: bold;
+            cursor: pointer;
+
+            &:hover{
+                transition: all 0.3s ease-in-out;
+                background-color: #555;
+            }
+        }
+
+    }
+}
