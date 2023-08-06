@@ -4,7 +4,8 @@ import "./Product.scss"
 const images = [
   "https://img.freepik.com/free-photo/fashion-portrait-young-elegant-woman_1328-2731.jpg",
   "https://img.freepik.com/free-photo/fashion-portrait-young-elegant-woman_1328-2736.jpg",
-  "https://img.freepik.com/free-photo/fashion-portrait-young-elegant-woman_1328-2739.jpg"
+  "https://img.freepik.com/free-photo/fashion-portrait-young-elegant-woman_1328-2739.jpg",
+  "https://img.freepik.com/free-photo/fashion-portrait-young-elegant-woman_1328-2735.jpg"
 ]
 
 const Product = () => {
@@ -24,7 +25,7 @@ const Product = () => {
       </div>
       </div>
       <div className="Right">
-
+      Right
       </div>
     </div>
   )
