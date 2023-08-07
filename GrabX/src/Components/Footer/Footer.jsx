@@ -39,7 +39,7 @@ const Footer = () => {
         <div className="Item">
           <h1>About Me</h1>
           <span>
-            Hello! I&apos;m Syed Maruf Ali, a highly motivated developer with a deep passion for web development and software engineering. With a focus on continuous learning and improvement, I have honed my expertise in various programming languages, including Python and Java. Moreover, my hands-on experience with React JS enables me to craft dynamic and intuitive web applications.
+            Hello! I&apos;m Syed Maruf Ali, a highly motivated developer with a deep passion for web development and software engineering.I have honed my expertise in various programming languages, including Python, Java and various other programming languages. Moreover, my hands-on experience with React JS enables me to craft dynamic and intuitive web applications.
           </span>
         </div>
         <div className="Item">

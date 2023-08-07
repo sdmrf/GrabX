@@ -7,8 +7,12 @@ import Eng from '../../assets/english-language.png'
 import './Navbar.scss'
 
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import Cart from '../Cart/Cart';
 
 const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <div className="Navbar">
       <div className="Wrapper">
@@ -60,15 +64,14 @@ const Navbar = () => {
             <SearchIcon />
             <PersonOutlineOutlinedIcon />
             <FavoriteBorderOutlinedIcon />
-            <div className="CartIcon">
+            <div className="CartIcon"  onClick ={()=>setOpen(!open)}>
               <ShoppingCartOutlinedIcon />
               <span className="CartCount">2</span>
             </div>
           </div>
-
         </div>
-
       </div>
+      {open && <Cart isOpen={setOpen} />}
     </div>
   )
 }
