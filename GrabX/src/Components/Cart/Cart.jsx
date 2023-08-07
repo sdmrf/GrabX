@@ -20,15 +20,7 @@ const items = [
         "oldPrice": 39.99,
         "Price": 29.99
     },
-    {
-        "id": "3",
-        "img": "https://images.pexels.com/photos/15922610/pexels-photo-15922610/free-photo-of-woman-posing-in-red-clothes.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load",
-        "descp": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quia obcaecati eius sint repellat veritatis, quis nihil voluptatum, soluta inventore et, vero excepturi aut voluptas porro! Non libero assumenda accusamus!",
-        "title": "Product 3",
-        "isNew": true,
-        "oldPrice": 12.49,
-        "Price": 9.99
-    },
+
 ]
 
 
