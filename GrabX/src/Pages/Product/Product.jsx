@@ -41,7 +41,7 @@ const Product = () => {
         </div>
 
         <div className="Add">
-          <button className="Cart">
+          <button className="Add2Cart">
             <AddShoppingCartIcon /> ADD TO CART
           </button>
         </div>
