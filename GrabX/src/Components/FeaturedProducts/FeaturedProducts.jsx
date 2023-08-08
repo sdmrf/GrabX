@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import Card from "../Card/Card"
 import "./FeaturedProducts.scss"
 
@@ -41,6 +42,16 @@ const data = [
 
 
 const FeaturedProducts = ({ type, info }) => {
+    const [products, setProducts] = useState([])
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const res = await fetch("https://fakestoreapi.com/products", { method: "GET" });
+            const data = await res.json();
+            setProducts(data);
+        }
+        fetchProducts();
+    }, [])
+
     return (
         <div className="FeaturedProducts">
             <div className="Top">
@@ -50,7 +61,7 @@ const FeaturedProducts = ({ type, info }) => {
                 </p>
             </div>
             <div className="Bottom">
-            {data.map((item) => (<Card key={item.id} item={item} />))}
+            {products.map((item) => (<Card key={item.id} item={item} />))}
             </div>
         </div>
     )

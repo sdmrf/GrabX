@@ -1,5 +1,6 @@
 .FeaturedProducts{
     margin: 100px 200px;
+    overflow: scroll;
 
     .Top{
         display: flex;
@@ -24,7 +25,7 @@
 
     .Bottom{
         display: flex;
-        justify-content: space-between;
+        gap: 25px;
         margin-top: 50px;
 
     }

@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Product.scss"
 
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BalanceIcon from '@mui/icons-material/Balance';
+import { useParams } from "react-router-dom";
 
 const images = [
   "https://img.freepik.com/free-photo/fashion-portrait-young-elegant-woman_1328-2731.jpg",
@@ -16,6 +17,21 @@ const Product = () => {
 
   const [currImg, setCurrImg] = useState(0);
   const [quantity, setQuantity] = useState(1);
+  const ProductId = parseInt(useParams().id); 
+
+  const [product, setProduct] = useState({});
+
+  console.log(ProductId)
+
+  useEffect(() => {
+    const fetchProduct = async () => {
+      const res = await fetch("https://fakestoreapi.com/products/" + ProductId, { method: "GET" });
+      const data = await res.json();
+      setProduct(data);
+      console.log(data);
+    }
+    fetchProduct();
+  }, [])
 
   return (
     <div className="Product">
@@ -26,13 +42,13 @@ const Product = () => {
           ))}
         </div>
         <div className="MainImg">
-          <img src={images[currImg]} alt="" />
+          <img src={product.image} alt="" />
         </div>
       </div>
       <div className="Right">
-        <h1>Title</h1>
-        <span className="Price">$17</span>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni molestiae exercitationem repellendus beatae dolorum sapiente? Temporibus doloremque ipsa ea, sapiente vitae, cum perferendis neque, dolor facere ad fuga quaerat eius.</p>
+        <h1>{product.title}</h1>
+        <span className="Price">${product.price}</span>
+        <p>{product.description}</p>
 
         <div className="Quantity">
           <button onClick={() => setQuantity(prev => prev === 1 ? 1 : prev - 1)}>-</button>
@@ -54,10 +70,8 @@ const Product = () => {
           </div>
         </div>
         <div className="Info">
-          <span>Vendor: Polo</span>
-          <span>Product Type: T-Shirt</span>
-          <span>Barcode: 8048428984</span>
-          <span>Tags: T-Shirt, Women, Clothing</span>
+        <span>Category: {product.category}</span>
+        <span>Ratings: {product.rating && product.rating.rate}</span>
         </div>
         <hr />
       </div>
