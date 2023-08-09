@@ -1,46 +1,34 @@
-import Card from "../Card/Card"
-import "./FeaturedProducts.scss"
+import { useEffect, useState } from "react";
+import Card from "../Card/Card";
+import "./FeaturedProducts.scss";
+import axios from "axios";
 
 
-const data = [
-    {
-        "id": "1",
-        "img": "https://images.pexels.com/photos/16687285/pexels-photo-16687285/free-photo-of-portrait-of-woman-with-hair-over-face.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load",
-        "img2": "https://images.pexels.com/photos/2010877/pexels-photo-2010877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "title": "Shirt",
-        "isNew": true,
-        "oldPrice": 25.99,
-        "Price": 19.99
-    },
-    {
-        "id": "2",
-        "img": "https://images.pexels.com/photos/17358089/pexels-photo-17358089/free-photo-of-brunette-woman-posing.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "title": "Women's Dress",
-        "isNew": false,
-        "oldPrice": 39.99,
-        "Price": 29.99
-    },
-    {
-        "id": "3",
-        "img": "https://images.pexels.com/photos/15922610/pexels-photo-15922610/free-photo-of-woman-posing-in-red-clothes.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load",
-        "title": "Necklace",
-        "isNew": true,
-        "oldPrice": 12.49,
-        "Price": 9.99
-    },
-    {
-        "id": "4",
-        "img": "https://images.pexels.com/photos/17651315/pexels-photo-17651315/free-photo-of-portrait-of-a-man-standing-in-a-city.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load",
-        "title": "Coat",
-        "isNew": false,
-        "oldPrice": 59.99,
-        "Price": 49.99
-    },
 
-]
+const GRABX_API_TOKEN = "a912ce73aa56ba47d9fd16146346c46fed79ea9fec7785ed4286a8b65e9651ef764303afdf053904bd4e4f1459293d1219bcf024e3dcd82ae084fb4ca6d26ca7ffc5ae16030794ddf367b20b83dc606e9c2ba13964044bd6ba2bf740f463742a2effb101763fe6ce9ef68ed21729435d7f328ddd9633642395f8b88cb637c121"
+const GRABX_API_URL = "http://localhost:1337/api"
 
 
 const FeaturedProducts = ({ type, info }) => {
+
+    const [Products, setProducts] = useState([]);
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await axios.get(GRABX_API_URL + "/products?populate=*",{
+                    headers: { Authorization: `Bearer ${GRABX_API_TOKEN}` }
+                })
+                setProducts(response.data.data)
+            } catch (error) {
+                console.log(error)
+            }
+        }
+        fetchProducts()
+    }, [])
+
+    console.log(Products)
+
     return (
         <div className="FeaturedProducts">
             <div className="Top">
@@ -50,7 +38,7 @@ const FeaturedProducts = ({ type, info }) => {
                 </p>
             </div>
             <div className="Bottom">
-            {data.map((item) => (<Card key={item.id} item={item} />))}
+            {Products?.map((item) => (<Card key={item.id} item={item} />))}
             </div>
         </div>
     )
