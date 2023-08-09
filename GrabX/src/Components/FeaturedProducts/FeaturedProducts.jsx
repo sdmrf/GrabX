@@ -16,7 +16,7 @@ const FeaturedProducts = ({ type, info }) => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await axios.get(GRABX_API_URL + "/products?populate=*",{
+                const response = await axios.get(GRABX_API_URL + `/products?populate=*&[filters][Type][$eq]=${type}`,{
                     headers: { Authorization: `Bearer ${GRABX_API_TOKEN}` }
                 })
                 setProducts(response.data.data)
