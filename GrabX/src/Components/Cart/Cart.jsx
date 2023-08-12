@@ -6,23 +6,20 @@ import { removeItem, resetCart } from "../../Redux/cartReducer";
 
 
 
-const Cart = ({isOpen}) => {
+const Cart = ({ isOpen }) => {
     const Products = useSelector(state => state.cart.products)
     const dispatch = useDispatch();
 
-    const subTotal = () =>{
-        let total = 0;
-        Products.forEach(item => {
-            total += item.Price * item.quantity;
-        });
-        return total;
+    const subTotal = () => {
+        return Products.reduce((total, item) => total + item.Price * item.quantity, 0).toFixed(2);
     }
+
 
     return (
         <div className="Cart">
             <div className="Head">
                 <h1>Products in your cart</h1>
-                <CloseIcon className="Close" onClick={()=>isOpen(!open)} />
+                <CloseIcon className="Close" onClick={() => isOpen(!open)} />
             </div>
             <div className="Items">
                 {Products.map((item) => (
@@ -32,12 +29,12 @@ const Cart = ({isOpen}) => {
                         </div>
                         <div className="Item-Info">
                             <div className="Item-Name">{item.title}</div>
-                            <div className="Item-Description">{item.descp?.substring(0,50)}</div>
+                            <div className="Item-Description">{item.descp?.substring(0, 50) || 'No description available'}</div>
                             <div className="Item-Price">{item.quantity} x ${item.Price}</div>
                         </div>
-                        <DeleteForeverIcon className="Delete" 
-                        onClick={() => dispatch(removeItem({id: item.id}))}
-                         />
+                        <DeleteForeverIcon className="Delete"
+                            onClick={() => dispatch(removeItem({ id: item.id }))}
+                        />
                     </div>
                 ))}
             </div>
