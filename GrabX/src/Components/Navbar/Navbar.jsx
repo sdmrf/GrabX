@@ -28,10 +28,10 @@ const Navbar = () => {
             <ExpandMoreIcon />
           </div>
           <div className="Item">
-            <Link to="/Products/1" className='Link'>Men</Link>
+            <Link to="/Products/1" className='Link'>Women</Link>
           </div>
           <div className="Item">
-            <Link to="/Products/2" className='Link'>Women</Link>
+            <Link to="/Products/2" className='Link'>Man</Link>
           </div>
           <div className="Item">
             <Link to="/Products/3" className='Link'>Childrens</Link>
