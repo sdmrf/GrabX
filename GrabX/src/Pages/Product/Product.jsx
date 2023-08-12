@@ -1,38 +1,53 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./Product.scss"
+
+import { useParams } from "react-router-dom";
+import useFetch from "../../Hooks/useFetch";
+
 
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import BalanceIcon from '@mui/icons-material/Balance';
 
-const images = [
-  "https://img.freepik.com/free-photo/fashion-portrait-young-elegant-woman_1328-2731.jpg",
-  "https://img.freepik.com/free-photo/fashion-portrait-young-elegant-woman_1328-2736.jpg",
-  "https://img.freepik.com/free-photo/fashion-portrait-young-elegant-woman_1328-2739.jpg",
-  "https://img.freepik.com/free-photo/fashion-portrait-young-elegant-woman_1328-2735.jpg"
-]
 
 const Product = () => {
 
-  const [currImg, setCurrImg] = useState(0);
+  const id = useParams().id;
+  const Img_URL = import.meta.env.VITE_APP_API_IMG_URL;
+  const { data, error, loading } = useFetch(`/products/${id}?populate=*`)
+  console.log(Img_URL + data?.attributes?.Images?.data[0]?.attributes?.url)
+  const [currImg, setCurrImg] = useState("");
+
+  useEffect(() => {
+    if (!loading && data?.attributes?.Images?.data[0]?.attributes?.url) {
+      setCurrImg(Img_URL + data.attributes.Images.data[0].attributes.url);
+    }
+  }, [loading, data, Img_URL]);
+
+
   const [quantity, setQuantity] = useState(1);
+
+
+  console.log(data?.attributes?.Images)
+
 
   return (
     <div className="Product">
       <div className="Left">
         <div className="Images">
-          {images.map((img, index) => (
-            <img src={img} alt="" key={index} onClick={() => setCurrImg(index)} />
+          {data?.attributes?.Images?.data?.map((img, index) => (
+            <img src={Img_URL + img?.attributes?.url} alt="" key={index} onClick={() => setCurrImg(Img_URL + img?.attributes?.url)} />
           ))}
         </div>
         <div className="MainImg">
-          <img src={images[currImg]} alt="" />
+          {currImg && <img src={currImg} alt="" />}
         </div>
+
       </div>
       <div className="Right">
-        <h1>Title</h1>
-        <span className="Price">$17</span>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni molestiae exercitationem repellendus beatae dolorum sapiente? Temporibus doloremque ipsa ea, sapiente vitae, cum perferendis neque, dolor facere ad fuga quaerat eius.</p>
+        <h1>{data?.attributes?.Title}</h1>
+        <span className="Price">${data?.attributes?.Price}</span>
+        <p>{data?.attributes?.Description}</p>
 
         <div className="Quantity">
           <button onClick={() => setQuantity(prev => prev === 1 ? 1 : prev - 1)}>-</button>

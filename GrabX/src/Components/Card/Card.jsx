@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import "./Card.scss"
 
 
-const Img_URL = "http://localhost:1337"
+const Img_URL = import.meta.env.VITE_APP_API_IMG_URL;
 
 const Card = ({ item }) => {
     return (

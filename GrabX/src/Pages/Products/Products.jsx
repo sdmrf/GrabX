@@ -20,13 +20,8 @@ const Products = () => {
     }
   }
 
-  console.log(selectedSubCategories)
-
-
-
 
   const { data, error, loading } = useFetch(`/sub-categories?populate=*&[filters][Category][$eq]=${CatId}`);
-  console.log(data);
 
   return (
     <div className="Products">
