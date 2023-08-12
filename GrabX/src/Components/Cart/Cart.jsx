@@ -1,30 +1,23 @@
 import "./Cart.scss"
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import CloseIcon from '@mui/icons-material/Close';
-const items = [
-    {
-        "id": "1",
-        "img": "https://images.pexels.com/photos/17358089/pexels-photo-17358089/free-photo-of-brunette-woman-posing.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "title": "Product 1",
-        "descp": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quia obcaecati eius sint repellat veritatis, quis nihil voluptatum, soluta inventore et, vero excepturi aut voluptas porro! Non libero assumenda accusamus!",
-        "isNew": true,
-        "oldPrice": 25.99,
-        "Price": 19.99
-    },
-    {
-        "id": "2",
-        "img": "https://images.pexels.com/photos/16687285/pexels-photo-16687285/free-photo-of-portrait-of-woman-with-hair-over-face.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load",
-        "descp": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat quia obcaecati eius sint repellat veritatis, quis nihil voluptatum, soluta inventore et, vero excepturi aut voluptas porro! Non libero assumenda accusamus!",
-        "title": "Product 2",
-        "isNew": false,
-        "oldPrice": 39.99,
-        "Price": 29.99
-    },
+import { useDispatch, useSelector } from "react-redux";
+import { removeItem, resetCart } from "../../Redux/cartReducer";
 
-]
 
 
 const Cart = ({isOpen}) => {
+    const Products = useSelector(state => state.cart.products)
+    const dispatch = useDispatch();
+
+    const subTotal = () =>{
+        let total = 0;
+        Products.forEach(item => {
+            total += item.Price * item.quantity;
+        });
+        return total;
+    }
+
     return (
         <div className="Cart">
             <div className="Head">
@@ -32,7 +25,7 @@ const Cart = ({isOpen}) => {
                 <CloseIcon className="Close" onClick={()=>isOpen(!open)} />
             </div>
             <div className="Items">
-                {items.map((item) => (
+                {Products.map((item) => (
                     <div className="Item" key={item.id}>
                         <div className="Item-Image">
                             <img src={item.img} alt={item.title} />
@@ -40,21 +33,25 @@ const Cart = ({isOpen}) => {
                         <div className="Item-Info">
                             <div className="Item-Name">{item.title}</div>
                             <div className="Item-Description">{item.descp?.substring(0,50)}</div>
-                            <div className="Item-Price">1 x ${item.Price}</div>
+                            <div className="Item-Price">{item.quantity} x ${item.Price}</div>
                         </div>
-                        <DeleteForeverIcon className="Delete" />
+                        <DeleteForeverIcon className="Delete" 
+                        onClick={() => dispatch(removeItem({id: item.id}))}
+                         />
                     </div>
                 ))}
             </div>
             <div className="Total">
                 <div className="Total-Text">SUB TOTAL</div>
-                <div className="Total-Price">$700</div>
+                <div className="Total-Price">${subTotal()}</div>
             </div>
             <div className="Bottom">
                 <div className="Checkout">
                     <button>PROCEED TO CHECKOUT</button>
                 </div>
-                <span>Reset Cart Items</span>
+                <span onClick={
+                    () => dispatch(resetCart())
+                } >Reset Cart Items</span>
             </div>
         </div>
     )
