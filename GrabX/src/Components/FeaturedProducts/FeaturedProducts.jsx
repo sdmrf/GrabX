@@ -1,46 +1,15 @@
-import Card from "../Card/Card"
-import "./FeaturedProducts.scss"
+import { useState } from "react";
+import Card from "../Card/Card";
+import "./FeaturedProducts.scss";
+import useFetch from "../../Hooks/useFetch";
 
-
-const data = [
-    {
-        "id": "1",
-        "img": "https://images.pexels.com/photos/16687285/pexels-photo-16687285/free-photo-of-portrait-of-woman-with-hair-over-face.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load",
-        "img2": "https://images.pexels.com/photos/2010877/pexels-photo-2010877.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "title": "Shirt",
-        "isNew": true,
-        "oldPrice": 25.99,
-        "Price": 19.99
-    },
-    {
-        "id": "2",
-        "img": "https://images.pexels.com/photos/17358089/pexels-photo-17358089/free-photo-of-brunette-woman-posing.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "title": "Women's Dress",
-        "isNew": false,
-        "oldPrice": 39.99,
-        "Price": 29.99
-    },
-    {
-        "id": "3",
-        "img": "https://images.pexels.com/photos/15922610/pexels-photo-15922610/free-photo-of-woman-posing-in-red-clothes.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load",
-        "title": "Necklace",
-        "isNew": true,
-        "oldPrice": 12.49,
-        "Price": 9.99
-    },
-    {
-        "id": "4",
-        "img": "https://images.pexels.com/photos/17651315/pexels-photo-17651315/free-photo-of-portrait-of-a-man-standing-in-a-city.jpeg?auto=compress&cs=tinysrgb&w=400&lazy=load",
-        "title": "Coat",
-        "isNew": false,
-        "oldPrice": 59.99,
-        "Price": 49.99
-    },
-
-]
 
 
 const FeaturedProducts = ({ type, info }) => {
+
+    const { data, error, loading } = useFetch(`/products?populate=*&[filters][Type][$eq]=${type}`);
+
+
     return (
         <div className="FeaturedProducts">
             <div className="Top">
@@ -50,7 +19,7 @@ const FeaturedProducts = ({ type, info }) => {
                 </p>
             </div>
             <div className="Bottom">
-            {data.map((item) => (<Card key={item.id} item={item} />))}
+                {loading ? <h1>Loading...</h1> : error ? <h1>Oops! Something went wrong.</h1> : data?.map((item) => (<Card key={item.id} item={item} />))}
             </div>
         </div>
     )

@@ -2,31 +2,43 @@ import { useParams } from "react-router-dom"
 import List from "../../Components/List/List"
 import "./Products.scss"
 import { useState } from "react";
+import useFetch from "../../Hooks/useFetch";
 
 const Products = () => {
 
   const CatId = parseInt(useParams().id);
   const [maxPrice, setMaxPrice] = useState(1000);
-  const [sort, setSort] = useState(null);
+  const [sort, setSort] = useState("asc");
+
+  const [selectedSubCategories, setSelectedSubCategories] = useState([]);
+
+  const handleChange = (e) => {
+    if (e.target.checked) {
+      setSelectedSubCategories([...selectedSubCategories, e.target.value]);
+    } else {
+      setSelectedSubCategories(selectedSubCategories.filter((item) => item !== e.target.value));
+    }
+  }
+
+
+  const { data, error, loading } = useFetch(`/sub-categories?populate=*&[filters][Category][$eq]=${CatId}`);
 
   return (
     <div className="Products">
       <div className="Left">
         <div className="FilterItem">
           <h1>Product Categories</h1>
-          <div className="Input">
-            <input type="checkbox" id="price1" name="price1" value="price1" />
-            <label htmlFor="price1">Shirt</label>
-          </div>
-          <div className="Input">
-            <input type="checkbox" id="price2" name="price2" value="price2" />
-            <label htmlFor="price2">Coat</label>
-          </div>
-          <div className="Input">
-            <input type="checkbox" id="price3" name="price3" value="price3" />
-            <label htmlFor="price3">Shoes</label>
-          </div>
+          {loading ? <h1>Loading...</h1> :
+            error ? <h1>Oops! Something went wrong.</h1> :
+              data?.map((item) => (
+                <div className="Input" key={item.id} onChange={handleChange}>
+                  <input type="checkbox" id={item.id} value={item.id} />
+                  <label htmlFor="price1">{item.attributes.Title}</label>
+                </div>
+              ))
+          }
         </div>
+
         <div className="FilterItem">
           <h1>Filter By Price</h1>
           <div className="Input">
@@ -56,7 +68,7 @@ const Products = () => {
           </video>
         </div>
         <div className="Down">
-          <List CatId={CatId} maxPrice={maxPrice} sort={sort} />
+          <List catId={CatId} maxPrice={maxPrice} sort={sort} subCat = {selectedSubCategories}/>
         </div>
       </div>
     </div>
