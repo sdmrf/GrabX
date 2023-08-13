@@ -3,6 +3,11 @@
     height: calc(100vh - 80px);
     width: 100vw;
     overflow: hidden;
+    @media screen and (max-width: 768px) {
+        height: 40vh;
+        width: 100%;
+        
+    }
 
 
     .Container{
@@ -12,11 +17,15 @@
         height: 100%;
         transition: all 1s ease;
 
+        @media screen and (max-width: 768px) {
+        }
+
         video{
             height: 100%;
             width: 100vw;
             border-radius: 5px;
             object-fit: cover;
+
         }
     }
 
@@ -32,6 +41,16 @@
         justify-content: center;
         align-items: center;
 
+        @media screen and (max-width: 768px) {
+            bottom: 0;
+            top: 0;
+            justify-content: space-between;
+            margin: 0 ;
+            width: 100%;
+
+            
+        }
+
 
         .Icon{
             height: 50px;
@@ -44,9 +63,26 @@
             cursor: pointer;
             transition: all 0.3s ease;
 
+            @media screen and (max-width: 768px) {
+                height: 30px;
+                width: 30px;
+                margin: 0 10px;
+
+            }
+
             &:hover{
                 background-color: #dadada;
                 scale: 1.1;
+            }
+
+            svg{
+                height: 30px;
+                width: 30px;
+                fill: #000;
+                @media screen and (max-width: 768px) {
+                    height: 15px;
+                    width: 15px;
+                }
             }
         }
 

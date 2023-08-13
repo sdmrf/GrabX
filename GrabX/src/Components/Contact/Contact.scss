@@ -1,4 +1,4 @@
-.Contact{
+.Contact {
     background-color: #2879FE;
     color: #f0f0f0;
 
@@ -6,24 +6,45 @@
     padding: 15px;
     justify-content: center;
 
-    .Wrapper{
+    @media screen and (max-width: 768px) {
+        padding: 5px;
+        font-size: 10px;
+
+    }
+
+    .Wrapper {
         width: 50%;
         display: flex;
         align-items: center;
         justify-content: space-between;
 
-        span{
+        @media screen and (max-width: 768px) {
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+
+        span {
             font-weight: bold;
         }
 
-        input{
+        input {
             padding: 10px;
             border: none;
             border-radius: 5px 0 0 5px;
 
+
+            @media screen and (max-width: 768px) {
+                padding: 5px;
+                font-size: 10px;
+                border-radius: 0;
+            }
+
         }
 
-        button{
+        button {
             padding: 10px;
             border: none;
             border-radius: 0 5px 5px 0;
@@ -32,7 +53,15 @@
             font-weight: bold;
             cursor: pointer;
 
-            &:hover{
+            @media screen and (max-width: 768px) {
+                padding: 5px;
+                font-size: 10px;
+                border-radius: 0;
+
+
+            }
+
+            &:hover {
                 transition: all 0.3s ease-in-out;
                 background-color: #555;
             }

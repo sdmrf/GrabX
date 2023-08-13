@@ -1,7 +1,9 @@
 /* Footer */
 .Footer {
-    margin: 80px 175px 15px 175px;
-
+    margin: 30px;
+    @media screen and (max-width: 768px){
+        display: none;
+    }
     /* Footer Top */
     .Top {
         display: flex;

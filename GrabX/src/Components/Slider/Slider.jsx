@@ -33,10 +33,10 @@ const Slider = () => {
       </div>
       <div className="Icons">
         <div className="Icon" onClick={prevSlide}>
-          <ArrowBackIcon />
+          <ArrowBackIcon className="Arrow" />
         </div>
         <div className="Icon" onClick={nextSlide}>
-          <ArrowForwardIcon />
+          <ArrowForwardIcon className="Arrow" />
         </div>
       </div>
     </div>

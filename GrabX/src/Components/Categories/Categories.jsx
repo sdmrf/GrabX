@@ -13,6 +13,7 @@ const data = [
 const Categories = () => {
   return (
     <div className="Categories">
+    <h1>Categories</h1>
       <div className="Column">
         <div className="Row">
           <img src= {data[0]} alt="Category" />

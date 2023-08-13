@@ -7,6 +7,12 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     z-index: 100;
     padding: 10px;
+
+    @media screen and (max-width: 768px) {
+      position: fixed;
+      
+    }
+      
   
     .Head {
       display: flex;

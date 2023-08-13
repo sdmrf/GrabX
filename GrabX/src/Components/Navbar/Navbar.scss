@@ -1,5 +1,11 @@
 .Navbar{
     height: 80px;
+    @media screen and (max-width: 768px){
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
     .Wrapper{
         display: flex;
         padding: 10px 30px;
@@ -19,11 +25,22 @@
                 width: 25px;
                 height: 20px;
             }
+
+            @media screen and (max-width: 768px) {
+                display: none;
+                
+            }
+
         }
 
         .Center{
             font-size: 30px;
             letter-spacing: 2px;
+
+            @media screen and (max-width: 768px) {
+                font-size: 25px;
+                
+            }
 
         }
 
@@ -31,15 +48,38 @@
             gap: 25px;
             display: flex;
 
+            .Item{
+                @media screen and (max-width: 768px) {
+                    display: none;
+                    
+                }
+            }
+
             .Icons{
                 display: flex;
                 gap: 15px;
                 color: #777;
                 cursor: pointer;
 
+                .Icon{
+                    @media screen and (max-width: 768px) {
+                        display: none;
+                        
+                    }
+                }
                 .CartIcon{
                     transition: all 0.2s ease-in-out;
                     position: relative;
+
+                    @media screen and (max-width: 768px) {
+                        position: fixed;   
+                        top: 0;
+                        right: 0;
+                        margin-right: 20px;
+                        margin-top: 10px;
+                        z-index: 100;                    
+                    }
+
                     span{
                         height: 20px;
                         width: 20px;

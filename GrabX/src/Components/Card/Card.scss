@@ -5,6 +5,16 @@
     transition: all 1s ease-in-out;
     margin-bottom: 50px;
 
+    &:hover{
+        transform: scale(1.1);
+        transition: all 0.7s ease-in-out;
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 250px;
+        transition: all 0.7s ease-in-out;
+    }
+
 
     .Image{
         width: 100%;
